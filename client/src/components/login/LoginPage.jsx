@@ -1,8 +1,9 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {login} from '../../actions/users'
-import LoginForm from './LoginForm'
-import {Redirect} from 'react-router-dom'
+import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
+import {login} from '../../actions/users';
+import LoginForm from './LoginForm';
+import {Redirect} from 'react-router-dom';
+
 
 class LoginPage extends PureComponent {
 	handleSubmit = (data) => {
@@ -11,7 +12,7 @@ class LoginPage extends PureComponent {
 
 	render() {
 		if (this.props.currentUser) return (
-			<Redirect to="/" />
+			<Redirect to="/bootcamps" />
 		)
 
 		return (
