@@ -44,9 +44,9 @@ export default class EvaluationController {
       @Param('id') id: number
     ) {
       const grade = await Evaluation.findOneById({student: id})
-      if (evaluation) {
-        const lastgrade = Evaluation.sort((a,b) => 
-        Number(new Date(b.date))-number(new Date(a.date))))[0]
+      if (grade) {
+        const lastgrade = grade.sort((a,b) => 
+        Number(new Date(b.date))-Number(new Date(a.date)))[0]
         return lastgrade
       }
 
