@@ -1,5 +1,6 @@
-import {USER_LOGIN_SUCCESS, USER_LOGOUT} from '../actions/users'
-import {localStorageJwtKey} from '../constants'
+import {USER_LOGIN_SUCCESS, USER_LOGOUT} from '../actions/users';
+import {localStorageJwtKey} from '../constants';
+
 
 let initialState = null
 try {
@@ -11,6 +12,7 @@ try {
 catch (e) {
   console.log(`Error retrieving data from local storage`, e)
 }
+
 
 export default function (state = initialState, {type, payload}) {
 	switch (type) {
