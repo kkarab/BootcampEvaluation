@@ -27,4 +27,5 @@ export const newEvaluation = (teacherId, studentId, date, evaluation, comments) 
         .send(newEvaluation)
         .set('Authorization', `Bearer ${jwt}`)
         .then(result => (dispatch(getbootcamp(parseInt(result.body.student,10)))))
-}
+        .catch(err => {console.log('error: '+ err)})
+}       
