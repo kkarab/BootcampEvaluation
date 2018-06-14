@@ -3,7 +3,7 @@ import {baseUrl} from '../constants';
 import {isExpired} from '../jwt';
 
 
-export const CREATE_TEACHER = 'ADD_TEACHER'
+export const CREATE_TEACHER = 'CREATE_TEACHER'
 export const UPDATE_TEACHER = 'UPDATE_TEACHER'
 export const UPDATE_TEACHERS = 'UPDATE_TEACHERS'
 
