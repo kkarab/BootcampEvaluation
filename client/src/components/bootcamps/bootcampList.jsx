@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {redirect} from 'react-router-dom';
-import {addBootcamp, getBootcampList} from '../actions/bootcamps';
+import {Redirect} from 'react-router-dom';
+import {addBootcamp, getBootcampList} from './actions/bootcamps';
 
 class BootcampList extends PureComponent {
     

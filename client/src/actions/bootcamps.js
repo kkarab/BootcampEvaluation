@@ -16,7 +16,7 @@ const addBootcamp = bootcamp => ({
 
 const updateBootcamp = bootcamp => ({
   type: UPDATE_BOOTCAMP,
-  payload: bootcamps
+  payload: bootcamp
 })
 
 

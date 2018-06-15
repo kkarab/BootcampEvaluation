@@ -3,7 +3,7 @@ import {baseUrl} from '../constants';
 import {isExpired} from '../jwt';
 
 
-export const CREATE_TEACHER = 'CREATE_TEACHER'
+export const ADD_TEACHER = 'ADD_TEACHER'
 export const UPDATE_TEACHER = 'UPDATE_TEACHER'
 export const UPDATE_TEACHERS = 'UPDATE_TEACHERS'
 
@@ -41,10 +41,10 @@ export const login = (email, password) => (dispatch) =>
     	}
     })
 
-export const signup = (firstname, lastname,email, password) => (dispatch) =>
+export const signup = (firstname, lastname, email, password) => (dispatch) =>
 	request
 		.post(`${baseUrl}/teachers`)
-		.send({ firstName: firstName, lastName: lastName, email, password })
+		.send({ firstName: firstname, lastName: lastname, email, password })
 		.then(result => {
 			dispatch({
 				type: TEACHER_SIGNUP_SUCCESS

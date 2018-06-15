@@ -1,7 +1,7 @@
 import * as request from 'superagent';
 import {baseUrl} from '../constants';
 import {isExpired} from '../jwt';
-import {logout} from '../jwt';
+import {logout} from './teachers';
 
 
 
@@ -36,26 +36,26 @@ export const getStudentList = (bootcamp) => (dispatch, getState) => {
 }
 
 
-export const createStudent = (fullname, photo, bootcamp) => (dispatch, getstate) => {
+export const createStudent = (fullname, photo, bootcamp) => (dispatch, getState) => {
     const state = getState()
     const jwt = state.currentTeacher.jwt
     
-    if (isexpired(jwt)) return dispatch(logout())
+    if (isExpired(jwt)) return dispatch(logout())
 
     request
         .post(`${baseUrl}/students`)
         .set('Authorization', `Bearer ${jwt}`)
-        .send({fullname: fullname, photo: photo, bootcamp})
+        .send({fullname: fullname, photo: photo, bootcamp:bootcamp})
         .then(result => dispatch(addStudent(result.body)))
         .catch(err => console.error(err))
 }
 
 
-export const editStudent = ( id, fullname, photo, bootcamp) => (dispatch, getstate) => {
+export const editStudent = ( id, fullname, photo, bootcamp) => (dispatch, getState) => {
     const state = getState()
     const jwt = state.currentTeacher.jwt
     
-    if (isexpired(jwt)) return dispatch(logout())
+    if (isExpired(jwt)) return dispatch(logout())
 
     request
         .put(`${baseUrl}/students/${id}`)

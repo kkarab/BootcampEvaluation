@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {newEvaluation} from '../actions/evaluations';
-import {algorithm} from '../logic';
+import {newEvaluation} from './actions/evaluations';
+import {algorithm} from './logic';
 import {getStudentList,createStudent,editStudent} from '../actions/students';
 import './studentList.css';
 
@@ -262,7 +262,7 @@ class StudentList extends PureComponent {
     }
 }
 
-const mapstateToProps = state => ({
+const mapStateToProps = state => ({
     teacherId: state.currentTeacher.id,
     authenticated: state.currentteacher !== null,
     teachers: state.teachers,

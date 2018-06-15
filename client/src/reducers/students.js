@@ -1,4 +1,4 @@
-import {ADD_STUDENT, UPDATE_STUDENT} from '../actions/teachers';
+import {ADD_STUDENT, UPDATE_STUDENT} from '../actions/students';
 
 
 export default (state = null, {type, payload}) => {
