@@ -1,14 +1,14 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {redirect} from 'react-router-dom';
-import {addBootcamp, updateBootcamp} from '../actions/bootcamps';
+import {addBootcamp, getBootcampList} from '../actions/bootcamps';
 
 class BootcampList extends PureComponent {
     
     state = {}
 
     onChangeHandler = (e) => {
-        const {name,value} = <e.target
+        const {name,value} = e.target
         this.setState ({
             [name]: value
         })
@@ -16,7 +16,7 @@ class BootcampList extends PureComponent {
     
     componentWillMount() {
         if (this.props.authenticated) {
-            if (this.props.bootcamps ===null) this.props.bootcamps()
+            if (this.props.bootcamps ===null) this.props.getBootcampList()
         }
     }
 
@@ -26,7 +26,7 @@ class BootcampList extends PureComponent {
             <div>
                 Bootcamp #{bootcamp.bootcamp}
                 <br/>
-                Starting: {bootcamp.startDate} | Ending: {bootcamp:endDate}
+                Starting: {bootcamp.startDate} | Ending: {bootcamp.endDate}
                 <br/>
                 <input type="button" value="Details"
                     size="small"
@@ -73,7 +73,7 @@ class BootcampList extends PureComponent {
                     type="button"
                     value="Add Bootcamp"
                     onClick={
-                        ()=>createBootcamp(this.state.bootcamp,this.state.startDate,this.state.endDate)}
+                        ()=>addBootcamp(this.state.bootcamp,this.state.startDate,this.state.endDate)}
                 />
                 <div>
                     {bootcamps.map(bootcamp => this.renderBootcamp(bootcamp))}
@@ -86,8 +86,8 @@ class BootcampList extends PureComponent {
 
 const mapStateToProps = state => ({
     authenticated: state.currentTeacher !== null,
-    teachers: state.teachers ===null ? null : state.teachers,
+    teachers: state.teachers,
     bootcamps: state.bootcamps === null ? null : Object.values(state.bootcamps).sort((a,b) => b.id - a.id)
 })
 
-export default connect (mapStateToProps, {getBootcamps, createBootcamp})(BootcampList)
+export default connect (mapStateToProps, {getBootcampList, addBootcamp})(BootcampList)

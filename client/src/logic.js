@@ -23,8 +23,8 @@ function getRandomStudent(redStudents, yellowStudents, greenStudents) {
 }
 //console.log(getRandomStudentId(array1, array2, array3));
 
-
-export const algorithm = (bootcamp) => async (dispatch,getState) => {
+//make it async if it is not responsive
+export const algorithm = (bootcamp) =>  (dispatch,getState) => {
     const state = getState()
     const jwt = state.currentTeacher.jwt
     const studentList = await request
