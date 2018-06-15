@@ -1,15 +1,15 @@
-import games from './games';
-import users from './users';
+import bootcamps from './bootcamps';
+import students from './students';
 import login from './login';
-import currentUser from './currentUser';
+import currentTeacher from './currentTeacher';
 import signup from './signup';
 
 
 
 export default {
-  games,
-  users,
+  bootcamps,
+  students,
   login,
-  currentUser,
+  currentTeacher,
   signup
 }

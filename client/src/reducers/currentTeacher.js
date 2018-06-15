@@ -1,4 +1,4 @@
-import {USER_LOGIN_SUCCESS, USER_LOGOUT} from '../actions/users';
+import {TEACHER_LOGIN_SUCCESS, TEACHER_LOGOUT} from '../actions/teachers';
 import {localStorageJwtKey} from '../constants';
 
 
@@ -16,10 +16,10 @@ catch (e) {
 
 export default function (state = initialState, {type, payload}) {
 	switch (type) {
-		case USER_LOGIN_SUCCESS:
+		case TEACHER_LOGIN_SUCCESS:
 			return payload
 
-    case USER_LOGOUT:
+    case TEACHER_LOGOUT:
       return null
 
 		default:

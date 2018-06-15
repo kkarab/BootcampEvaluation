@@ -1,14 +1,14 @@
-import {USER_SIGNUP_SUCCESS, USER_SIGNUP_FAILED} from '../actions/users';
+import {TEACHER_SIGNUP_SUCCESS, TEACHER_SIGNUP_FAILED} from '../actions/teachers';
 
 
 export default function (state = {}, {type, payload}) {
 	switch(type) {
-    case USER_SIGNUP_SUCCESS:
+    case TEACHER_SIGNUP_SUCCESS:
       return {
         success: true
       }
 
-    case USER_SIGNUP_FAILED:
+    case TEACHER_SIGNUP_FAILED:
       return {
         error: payload
       }
