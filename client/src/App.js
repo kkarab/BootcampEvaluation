@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import LoginPage from './components/login/LoginPage';
 import SignupPage from './components/signup/SignupPage';
-import GamesList from './components/games/GamesList';
-import GameDetails from './components/games/GameDetails';
+import studentList from './components/students/StudentList';
+import bootcampList from './components/bootcamps/bootcampList';
 import LogoutPage from './components/logout/LogoutPage';
 import './App.css';
-import TopBar from './components/layout/TopBar';
+
 
 
 
@@ -14,21 +14,27 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <nav>
-            <TopBar />
-          </nav>
-          <main style={{marginTop:75}}>
-            <Route exact path="/login" component={LoginPage} />
+        <div className="App">
+          <header className="App-header">
+          {this.props.currentTeacher && <Link to="/logout">
+          <input type="button" value="LOG-OUT"/></Link>
+          }
+          </header>
+          <div>
+            <Route exact path="/home" component={FrontPage} />      
             <Route exact path="/logout" component={LogoutPage} />
-            <Route exact path="/signup" component={SignupPage} />
-            <Route exact path="/games" component={GamesList} />
-            <Route exact path="/games/:id" component={GameDetails} />
-            <Route exact path="/" render={ () => <Redirect to="/games" /> } />
-          </main>
+            <Route exact path="/bootcamps" component={BootcampList} />
+            <Route exact path="/bootcamps/:id" component={studentList} />
+            <Route exact path="/" render={ () => <Redirect to="/home" /> } />
+          </div>
         </div>
       </Router>
     )
   }
 }
-export default App
+
+const mapStateToProps = state => {return {
+  currentTeacher: state.currentTeacher
+}}
+
+export default connect(mapStateToProps)(App)
