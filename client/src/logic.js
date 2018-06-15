@@ -35,7 +35,7 @@ export const algorithm = (bootcamp) => async (dispatch,getState) => {
 
     if (!studentList) {
         return null
-        console.log('There are no students...')
+        //console.log('There are no students...')
     }
 
     const studentsRed = studentList.filter(student=>student.evaluation==='red')

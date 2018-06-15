@@ -14,7 +14,7 @@ const addBootcamp = bootcamp => ({
 })
 
 
-const updateBootcamps = bootcamp => ({
+const updateBootcamp = bootcamp => ({
   type: UPDATE_BOOTCAMP,
   payload: bootcamps
 })
@@ -30,7 +30,7 @@ export const getBootcampList = () => (dispatch, getState) => {
   request
     .get(`${baseUrl}/bootcamps`)
     .set('Authorization', `Bearer ${jwt}`)
-    .then(result => dispatch(updateBootcamps(result.body)))
+    .then(result => dispatch(updateBootcamp(result.body)))
     .catch(err => console.error(err))
 }
 
